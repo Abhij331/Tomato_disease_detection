@@ -1,1 +1,18 @@
+Overview
+This project aims to accurately detect and classify viral diseases in tomato plants using deep learning techniques, specifically leveraging the ResNet50 convolutional neural network. Early identification 
+of plant diseases is crucial for the agriculture industry as it helps in reducing crop losses and improves yield quality. This project provides an automated solution to detect various viral infections 
+affecting tomato leaves, enabling timely intervention and better management of plant health.
 
+Methodology
+The model was developed using the ResNet50 architecture, a deep residual neural network pre-trained on the ImageNet dataset, which is known for its excellent performance in image recognition tasks.
+The ResNet50 model was fine-tuned to classify 10 classes of tomato leaf conditions, including both healthy and disease-affected states.
+Data Preparation: The dataset was organized into training and validation sets. An ImageDataGenerator was used to apply data augmentation techniques, such as rotation, zoom, and shifts, to improve the
+model's generalization capability.
+Model Building: The pre-trained ResNet50 model was used as the base model with its top layers removed. A custom classification head with dense layers was added on top, including global average pooling
+and fully connected layers with ReLU activations, followed by a softmax output layer to classify the 10 different categories of tomato leaf conditions.
+Training and Optimization: The model was trained using the Adam optimizer with categorical cross-entropy loss. Callbacks like EarlyStopping, ModelCheckpoint, and ReduceLROnPlateau were utilized to prevent
+overfitting and improve training efficiency.
+Evaluation: The model's performance was evaluated using accuracy metrics, loss plots, classification reports, and a confusion matrix. The trained model was able to accurately predict the presence of diseases
+in unseen tomato leaf images.
+Deployment and Prediction: A custom function was developed to preprocess images from URLs, allowing for quick prediction of disease classes using the trained model. This demonstrates the potential real-world
+application of the system in identifying plant diseases from field images.
